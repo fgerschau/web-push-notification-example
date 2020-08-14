@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 const app = express();
 const port = 8080; // default port to listen
 
-app.use(express.static(path.join(__dirname, '../../client')));
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(bodyParser.json());
 
 // start the Express server
