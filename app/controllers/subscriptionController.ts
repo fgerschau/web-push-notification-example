@@ -13,3 +13,26 @@ export const post = async (req: Request, res: Response, next: NextFunction): Pro
     next(e);
   }
 };
+
+export const remove = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  try {
+    const endpoint: string = req.query.endpoint?.toString();
+    if (!endpoint) {
+      res.sendStatus(400);
+      return;
+    }
+
+    const successful = await subscriptionRepository.deleteByEndpoint(endpoint);
+    if (successful) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(500);
+    }
+  } catch (e) {
+    next(e);
+  }
+};

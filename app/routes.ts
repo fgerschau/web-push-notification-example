@@ -1,8 +1,9 @@
 import { Express } from 'express';
-import { post } from './controllers/subscriptionController';
+import { post, remove } from './controllers/subscriptionController';
 
 const initializeRoutes = (app: Express): void => {
   app.post('/subscription', post);
+  app.delete('/subscription', remove);
 };
 
 export default initializeRoutes;
