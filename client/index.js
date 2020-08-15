@@ -32,4 +32,12 @@ window.subscribe = async () => {
     userVisibleOnly: true,
     applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
   });
+
+  await fetch('/subscription', {
+    method: 'POST',
+    body: JSON.stringify(subscription),
+    headers: {
+      'content-type': 'application/json',
+    },
+  });
 };
