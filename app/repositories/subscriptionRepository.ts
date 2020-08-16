@@ -11,3 +11,7 @@ export const deleteByEndpoint = async (endpoint: string): Promise<boolean> => {
   return result.ok === 1 && result.deletedCount > 0;
 };
 
+export const getAll = async (): Promise<ISubscription[]> => {
+  const subscriptions = await Subscription.find();
+  return subscriptions;
+};
