@@ -1,6 +1,7 @@
-import Subscription, { ISubscription } from '../models/SubscriptionModel';
+import Subscription, {ISubscription} from '../models/SubscriptionModel';
+import {LeanDocument} from "mongoose";
 
-export const create = async (subscription: ISubscription): Promise<ISubscription> => {
+export const create = async (subscription: ISubscription): Promise<LeanDocument<ISubscription>> => {
   const newSubscription = new Subscription(subscription);
   const savedSubscription = await newSubscription.save();
   return savedSubscription.toObject();
@@ -12,6 +13,5 @@ export const deleteByEndpoint = async (endpoint: string): Promise<boolean> => {
 };
 
 export const getAll = async (): Promise<ISubscription[]> => {
-  const subscriptions = await Subscription.find();
-  return subscriptions;
+  return Subscription.find();
 };
