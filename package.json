@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/mongoose": "^5.7.36",
     "@types/web-push": "^3.3.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.0",
