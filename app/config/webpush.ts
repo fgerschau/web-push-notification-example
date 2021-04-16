@@ -1,7 +1,7 @@
 import webpush from 'web-push';
 
-const publicVapidKey = 'BMrfFtMtL9IWl9vchDbbbYzJlbQwplyZ_fbv8Pei8gPNna_Dr1O-Ng7U7fy0LLqz5RKIxEytTIzyk6TLrcKbN30';
-const privateVapidKey = 'E5gpbs9Y6r5TscHC64Ce9-hXojA9I1qQL0kuvX8Jz5Y';
+const publicVapidKey = 'BBrX9faJjI6fnzLWb102Kmjn9w7q8xogB864Urp84NbljEz-FWD7lwe3gqwQgWBg2Zn9CIu2Tjm51O31MmalSXw';
+const privateVapidKey = '_CprP8t4DFikcowAKEDDjXY8Nmm1Pbc1I2nygD9-PPs';
 
 export default (): void => {
   webpush.setVapidDetails(
