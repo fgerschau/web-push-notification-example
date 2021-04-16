@@ -27,7 +27,7 @@ export const remove = async (
       return;
     }
 
-    const successful = await subscriptionRepository.deleteByEndpoint(endpoint);
+    const successful = await subscriptionRepository.deleteByEndpoint(endpoint); 
     if (successful) {
       res.sendStatus(200);
     } else {
@@ -49,13 +49,25 @@ export const broadcast = async (
     const subscriptions = await subscriptionRepository.getAll();
 
     const notifications: Promise<SendResult>[] = [];
+
+
+    
+
     subscriptions.forEach((subscription) => {
-      notifications.push(webpush.sendNotification(subscription, JSON.stringify(notification)));
+      console.log(`sub:${subscription}`);
+      const options = {
+            proxy: 'http://localhost:7890',
+        };
+
+      var ret = webpush.sendNotification(subscription, JSON.stringify(notification), options);
+      notifications.push(ret);
     });
 
-    await Promise.all(notifications);
+    let rets  = await Promise.all(notifications);
+    console.log(rets);
     res.sendStatus(200);
   } catch (e) {
+      console.log(e);
     next(e);
   }
 };
